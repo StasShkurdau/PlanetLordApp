@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+
+    <h2>API for Supreme Ruler</h2>
+
+    <form action="/main/addPlanet" method="get" class="submit">
+        <button type="submit">Add new planet</button>
+    </form>
+    <form action="/main/addPlanetLord" method="get" class="submit">
+        <button type="submit">Add new Planet Lord</button>
+    </form>
+    <form action="/main/appointRuler" method="get" class="submit">
+        <button type="submit">Appoint ruler of planet</button>
+    </form>
+    <form action="/main/destroyPlanet" method="get" class="submit">
+        <button type="submit">Destroy Planet</button>
+    </form>
+    <form action="/main/showLosers" method="get" class="submit">
+        <button type="submit">Show losers</button>
+    </form>
+    <form action="/main/showYoungestLords" method="get" class="submit">
+        <button type="submit">Youngest Lords</button>
+    </form>
+</div>
+
+<ul>
+    <a th:if="${message}"  th:text="${message}"> Message !!</a>
+</ul>
+</body>
+</html>

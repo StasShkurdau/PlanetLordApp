@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body>
+    <h2>Lords without planet</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr></tr>
+        <tr th:each="lord : ${LordList}">
+
+            <td th:text="${lord.id}"></td>
+            <td th:text="${lord.name}"></td>
+            <td th:text="${lord.age}"></td>
+        </tr>
+    </table>
+    </body>
+</html>

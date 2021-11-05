@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Add planet</h2>
+<form class="formBox" th:object="${planetLord}" th:action="@{/main/addPlanetLordAction}" method="post">
+    <fieldset>
+        <div>
+            <div class="lab"><label for="name">Name</label></div>
+            <div class="con"><input class="input" type="text" th:field="*{name}" id="name" /> </div>
+            <p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> something wrong</p>
+        </div>
+
+        <div>
+            <div class="lab"><label for="age">Name</label></div>
+            <div class="con"><input class="input" type="number" th:field="*{age}" id="age" /> </div>
+            <p style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"> something wrong</p>
+        </div>
+
+        <div class="btn-submit"><!-- Submit form -->
+            <input type="submit" value="Submit form" class="button"/>
+        </div>
+
+    </fieldset>
+</form>
+
+</body>
+</html>

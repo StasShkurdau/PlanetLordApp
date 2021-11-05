@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Destroy planet</h2>
+    <ul>
+        <a style="color: red" th:if="${message_error}"  th:text="${message_error}"> Message !!</a>
+    </ul>
+    <form class="formBox" th:object="${planet}" th:action="@{/main/destroyPlanetAction}" method="post">
+        <fieldset>
+            <div>
+                <div class="lab"><label for="name">Name</label></div>
+                <div class="con"><input class="input" type="text" th:field="*{name}" id="name"/> </div>
+            </div>
+            <div class="btn-submit">
+                <input type="submit" value="Submit form" class="button"/>
+            </div>
+
+        </fieldset>
+    </form>
+</body>
+</html>

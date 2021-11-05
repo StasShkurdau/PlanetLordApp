@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+
+        <h2>Appoint a ruler</h2>
+
+        <div th:if="${message_error}"  class="form-message warning">
+            <p style="color: red">Warning</p>
+            <ul>
+                <li><a style="color: red" th:if="${message_error}"  th:text="${message_error}"> Message !!</a></li>
+            </ul>
+        </div>
+        <form class="formBox" th:object="${appointRuler}" th:action="@{/main/appointRulerAction}" method="post">
+            <fieldset>
+                <div>
+                    <div class="lab"><label for="name1">Planet's name</label></div>
+                    <div class="con"><input class="input" type="text" th:field="*{planetName}" id="name1" /> </div>
+                </div>
+                <div>
+                    <div class="lab"><label for="name2">Lord's name</label></div>
+                    <div class="con"><input class="input" type="text" th:field="*{planetLordName}" id="name2" /> </div>
+                </div>
+                <div class="btn-submit"><!-- Submit form -->
+                    <input type="submit" value="Submit form" class="button"/>
+                </div>
+            </fieldset>
+        </form>
+    </body>
+</html>
