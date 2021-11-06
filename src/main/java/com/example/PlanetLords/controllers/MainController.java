@@ -28,6 +28,12 @@ public class MainController {
         return "main_page";
     }
 
+    @GetMapping(path = "/addPlanet")
+    public String addPlanet(Model model){
+        model.addAttribute("planet", new PlanetDTO());
+        return "add_planet";
+    }
+
     @PostMapping(path = "/addPlanetLordAction")
     public String addPlanetLord(@ModelAttribute("planetLord") @Valid PlanetLordDTO planetLordDTO,
                                 BindingResult bindingResult,
@@ -45,8 +51,8 @@ public class MainController {
 
     @PostMapping(path = "/addPlanetAction")
     public String addPlanet(@ModelAttribute("planet") @Valid PlanetDTO planetDTO,
-                              BindingResult bindingResult,
-                              Model model) {
+                            BindingResult bindingResult,
+                            Model model) {
         if (bindingResult.hasErrors()) {
             //   model.addAttribute("sections", sectionRepository.findAll())
             return "add_planet";
@@ -55,12 +61,6 @@ public class MainController {
             model.addAttribute("message", String.format("Add planet %s to DB", planetDTO.getName()));
             return "main_page";
         }
-    }
-
-    @GetMapping(path = "/addPlanet")
-    public String addPlanet(Model model){
-        model.addAttribute("planet", new PlanetDTO());
-        return "add_planet";
     }
 
     @GetMapping(path = "/addPlanetLord")

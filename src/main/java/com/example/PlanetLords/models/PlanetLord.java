@@ -18,7 +18,7 @@ public class PlanetLord {
 
     private int age;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "lord_id")
     private List<Planet> planets = new ArrayList<>();
 }

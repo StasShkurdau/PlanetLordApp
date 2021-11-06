@@ -93,6 +93,13 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
+    public String deletePlanetLord(PlanetLordDTO planetLordDTO) {
+        PlanetLord planetLord = planetLordRepository.findByName(planetLordDTO.getName());
+        planetLordRepository.delete(planetLord);
+        return "ok";
+    }
+
+    @Override
     public List<PlanetLord> listLosers() {
         List<PlanetLord> lordList = planetLordRepository.findAll();
         List<PlanetLord> listToReturn = new ArrayList<>();
@@ -116,5 +123,17 @@ public class MainServiceImpl implements MainService {
                 return criteria.list();
 
     }
+
+    @Override
+    public Planet getPlanetByName(String name) {
+        return planetRepository.findByName(name);
+    }
+
+    @Override
+    public PlanetLord getPlanetLordByName(String name) {
+        return planetLordRepository.findByName(name);
+    }
+
+
 
 }
