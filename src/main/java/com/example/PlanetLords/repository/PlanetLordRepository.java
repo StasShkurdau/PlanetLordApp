@@ -12,4 +12,6 @@ import java.util.List;
 public interface PlanetLordRepository extends PagingAndSortingRepository<PlanetLord, Long> {
     PlanetLord findByName(String name);
     List<PlanetLord> findAll();
+    List<PlanetLord> findByPlanetsIsNull();
+
 }

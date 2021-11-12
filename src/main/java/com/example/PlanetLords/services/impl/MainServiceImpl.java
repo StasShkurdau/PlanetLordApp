@@ -101,13 +101,7 @@ public class MainServiceImpl implements MainService {
 
     @Override
     public List<PlanetLord> listLosers() {
-        List<PlanetLord> lordList = planetLordRepository.findAll();
-        List<PlanetLord> listToReturn = new ArrayList<>();
-        for(int i = 0; i < lordList.size(); i++){
-            if(lordList.get(i).getPlanets().size() == 0){
-                listToReturn.add(lordList.get(i));
-            }
-        }
+        List<PlanetLord> listToReturn = planetLordRepository.findByPlanetsIsNull();
         LOGGER.info("User called the method listLosers()");
         return listToReturn;
     }
